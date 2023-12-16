@@ -37,31 +37,24 @@ public partial class ListaProductos : ContentPage
         CantidadCarrito.Text = MiCarrito.Sum(x => x.Cantidad).ToString();
     }
 
-    private async void OnClickShowDetails(object sender, SelectedItemChangedEventArgs e)
-    {
-        var toast = CommunityToolkit.Maui.Alerts.Toast.Make("Click en ver producto", ToastDuration.Short, 14);
 
-        await toast.Show();
-        Producto producto = e.SelectedItem as Producto;
-        await Navigation.PushAsync(new DetalleProductoPage(_APIService)
-        {
-            BindingContext = producto,
-        });
-    }
 
     private async void OnClickAddCard(object sender, EventArgs e)
 
     {
+        //obtiene un producto asociado al botón
         Producto producto = (sender as Button)?.BindingContext as Producto;
 
         Producto addProducto = new Producto { IdProducto = producto.IdProducto, Nombre = producto.Nombre, Descripcion = producto.Descripcion, Cantidad = 1, Precio = producto.Precio };
 
+        //busca el producto en la lista general de productos y le resta 1
         Producto productoExistencia = ListaProducto.Find(x => x.IdProducto == addProducto.IdProducto);
         productoExistencia.Cantidad--;
         var productos = new ObservableCollection<Producto>(ListaProducto);
         listaProductos.ItemsSource = productos;
 
 
+        //busca el producto en el carrito
         Producto productoList = MiCarrito.Find(x => x.IdProducto == addProducto.IdProducto);
 
         if (productoList != null)
@@ -72,25 +65,6 @@ public partial class ListaProductos : ContentPage
         CantidadCarrito.Text = MiCarrito.Sum(x => x.Cantidad).ToString();
 
     }
-
-
-    //private async void OnClickRestCard(object sender, EventArgs e)
-    //{
-    //    var producto = (sender as Button)?.BindingContext as Producto;
-
-    //    if (producto != null)
-    //    {
-    //        if (MiCarrito.Contains(producto))
-    //        {
-    //            MiCarrito.Remove(producto);
-    //            CantidadCarrito.Text = MiCarrito.Sum(x => x.Cantidad).ToString();
-    //        }
-    //    }
-
-
-    //}
-
-
 
 
     private async void OnClickVerCarrito(object sender, EventArgs e)

@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 using Ejemplo1.Models;
 using ProductoApp1.Services;
 
@@ -21,24 +23,32 @@ public partial class IniciarSesion : ContentPage
     }
 
 
-    private async void OnClickIniciarSesion(object sender, EventArgs e)
+    public async void OnClickIniciarSesion(object sender, EventArgs e)
     {
-        //Correo.Text = "123";
-        //Contrasena.Text = "123";
-        Usuario userLogin = await _APIService.GetIniciarSesion(Correo.Text, Contrasena.Text);
+        string correo = Correo.Text;
+        string contrasena = Contrasena.Text;
+        Usuario usuario = await _APIService.GetIniciarSesion(correo, contrasena);
 
-
-        if (userLogin != null && userLogin.Nombre != null)
+        if (!string.IsNullOrEmpty(correo) && !string.IsNullOrEmpty(contrasena))
         {
-            //_userService.usuarioGlobal = userLogin;
 
-                
-            await Navigation.PushAsync(new ListaProductos(_APIService , userLogin));
-
+            if (usuario != null)
+            {
+                await Navigation.PushAsync(new ListaProductos(_APIService, usuario));
+            }
+            else
+            {
+                var toast = Toast.Make("aNo se encontró ninguna cuenta, revise sus credenciales.", ToastDuration.Short, 14);
+                await toast.Show();
+            }
         }
         else
-            await Navigation.PushAsync(new IniciarSesion(_APIService));
+        {
+            var toast = Toast.Make("Por favor, ingrese todos los datos solicitados.", ToastDuration.Short, 14);
+            await toast.Show();
+        }
     }
+
 
     private async void OnClickVolverLista(object sender, EventArgs e)
     {

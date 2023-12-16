@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProductoApp1.Registrarse"
@@ -7,7 +7,8 @@
 
 
     <VerticalStackLayout>
-        <Frame HeightRequest="110" VerticalOptions="Start" CornerRadius="0" BackgroundColor="Black" Padding="0">
+
+        <Frame HeightRequest="110" VerticalOptions="Start" CornerRadius="0" BackgroundColor="Black" Padding="0" BorderColor="Black">
             <Label Margin="0,0,0,0"
                 Text="JOYALUX"
                 TextColor="White"
@@ -17,54 +18,48 @@
                 HorizontalOptions="Center"/>
         </Frame>
 
-
-
-        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0">
+        <StackLayout WidthRequest="320" Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0">
             <Label
-            Text="Brilla con Estilo: Tu Destino de Joyas Virtuales,"
-            TextColor="Black"
-            FontAttributes="Bold,Italic"
-            FontSize="15"
-            HorizontalOptions="Center"
-            TextDecorations="Underline"/>
-
+                Text="REGISTRATE"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontSize="45"
+                HorizontalOptions="Start"/>
             <Label
-            Text="donde Cada Tesoro Cuenta."
-            TextColor="Black"
-            FontAttributes="Bold,Italic"
-            FontSize="15"
-            HorizontalOptions="Center"
-            TextDecorations="Underline"/>
+                Text="para una experiencia premium."
+                TextColor="Black"
+                FontSize="15"
+                FontAttributes="Italic"
+                HorizontalOptions="Start"/>
 
-            <Frame HeightRequest="50" Margin="0,90,0,0" BorderColor="Black" Padding="0" >
+            <Frame HeightRequest="50" Margin="0,40,0,0" BorderColor="Black" Padding="0" >
                 <Entry WidthRequest="150" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" 
                    Placeholder="Nombre"
                    x:Name="Nombre"
                    TextColor="Black"/>
             </Frame>
-            <Frame  HeightRequest="50" Margin="0,10,0,0" BorderColor="Black" Padding="0">
+
+            <Frame HeightRequest="50" Margin="0,10,0,0" BorderColor="Black" Padding="0">
                 <Entry WidthRequest="150" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                 Placeholder="Correo"
                 x:Name="Correo"
-                TextColor="Black"
-                />
+                TextColor="Black"/>
             </Frame>
-            <Frame  HeightRequest="50" Margin="0,10,0,0" BorderColor="Black" Padding="0">
+
+            <Frame HeightRequest="50" Margin="0,10,0,0" BorderColor="Black" Padding="0">
                 <Entry WidthRequest="150" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
-                 Placeholder="Contrasena"
+                Placeholder="Contraseña"
                 x:Name="Contrasena"
-                    TextColor="Black"
-                IsPassword="True"/>
+                IsPassword="True"
+                TextColor="Black"/>
             </Frame>
+
             <Button WidthRequest="200" HeightRequest="55" Margin="0,60,0,0" BackgroundColor="Black" CornerRadius="20" Padding="0"
-                Text="Registrarse"
+                Text="Crear Cuenta"
                 TextColor="White"
                 FontAttributes="Bold"
                 Clicked="OnClickRegistrarse"/>
-
         </StackLayout>
-
-
     </VerticalStackLayout>
 </ContentPage>
 

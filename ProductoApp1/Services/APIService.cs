@@ -60,7 +60,7 @@ namespace ProductoApp1.Services
         }
 
 
-        public async Task<bool> DeleteProducto(int IdProducto)
+        /*public async Task<bool> DeleteProducto(int IdProducto)
         {
             var response = await _httpClient.DeleteAsync($"/api/Producto/{IdProducto}");
             if (response.StatusCode == HttpStatusCode.NoContent)
@@ -68,9 +68,9 @@ namespace ProductoApp1.Services
                 return true;
             }
             return false;
-        }
+        }*/
 
-        public async Task<Producto> GetProducto(int IdProducto)
+        /*public async Task<Producto> GetProducto(int IdProducto)
         {
             var response = await _httpClient.GetAsync($"/api/Producto/{IdProducto}");
             if (response.IsSuccessStatusCode)
@@ -80,7 +80,7 @@ namespace ProductoApp1.Services
                 return producto;
             }
             return new Producto();
-        }
+        }*/
 
         public async Task<List<Producto>> GetProductos()
         {
@@ -95,7 +95,7 @@ namespace ProductoApp1.Services
 
         }
 
-        public async Task<Producto> PostProducto(Producto producto)
+        /*public async Task<Producto> PostProducto(Producto producto)
         {
             var content = new StringContent(JsonConvert.SerializeObject(producto), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync("/api/Producto/", content);
@@ -106,9 +106,9 @@ namespace ProductoApp1.Services
                 return producto2;
             }
             return new Producto();
-        }
+        }*/
 
-        public async Task<Producto> PutProducto(int IdProducto, Producto producto)
+        /*public async Task<Producto> PutProducto(int IdProducto, Producto producto)
         {
             var content = new StringContent(JsonConvert.SerializeObject(producto), Encoding.UTF8, "application/json");
             var response = await _httpClient.PutAsync($"/api/Producto/{IdProducto}", content);
@@ -119,7 +119,7 @@ namespace ProductoApp1.Services
                 return producto2;
             }
             return new Producto();
-        }
+        }*/
 
 
         public async Task<Compra> PostCompra(Compra compra)

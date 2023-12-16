@@ -1,21 +1,48 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProductoApp1.ProductoPage"
-             Title="ProductoPage">
+             Title="ProductoPage"
+             BackgroundColor="White">
+
     <VerticalStackLayout>
+        <Frame HeightRequest="110" VerticalOptions="Start" CornerRadius="0" BackgroundColor="Black" Padding="0">
+            <Label Margin="0,0,0,0"
+                Text="JOYALUX"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="60"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"/>
+        </Frame>
 
-        <Button WidthRequest="200" HeightRequest="10" Margin="0,30,0,0" BackgroundColor="Black" CornerRadius="20" Padding="0"
-     Text="Iniciar Sesion"
-     TextColor="White"
-     FontAttributes="Bold"
-     Clicked="OnClickIniciarSesion"/>
+        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,100,0,0">
+            <Label
+            Text="Brilla con Estilo: Tu Destino de Joyas Virtuales,"
+            TextColor="Black"
+            FontAttributes="Bold,Italic"
+            FontSize="15"
+            HorizontalOptions="Center"
+            TextDecorations="Underline"/>
+            <Label
+            Text="donde Cada Tesoro Cuenta."
+            TextColor="Black"
+            FontAttributes="Bold,Italic"
+            FontSize="15"
+            HorizontalOptions="Center"
+            TextDecorations="Underline"/>
 
-        <Button WidthRequest="200" HeightRequest="10" Margin="0,30,0,0" BackgroundColor="Black" CornerRadius="20" Padding="0"
-         Text="Registrarse"
-         TextColor="White"
-         FontAttributes="Bold"
-         Clicked="OnClickRegistrarse"/>
-
-    </VerticalStackLayout>
+            <!-- Botones para Iniciar Sesión y Registrarse -->
+            <Button WidthRequest="200" HeightRequest="55" Margin="0,110,0,0" BackgroundColor="Black" CornerRadius="20" Padding="0"
+                Text="Iniciar sesión"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="OnClickIniciarSesion"/>
+            <Button WidthRequest="200" HeightRequest="55" Margin="0,7,0,0" Background="Gray" CornerRadius="20" Padding="0"
+                Text="Registrarse"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="OnClickRegistrarse"/>
+        </StackLayout>
+    </VerticalStackLayout>   
 </ContentPage>

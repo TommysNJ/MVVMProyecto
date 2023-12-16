@@ -1,44 +1,92 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProductoApp1.Carrito"
-             Title="Carrito">
+             Title="Carrito"
+             BackgroundColor="White">
 
     <VerticalStackLayout>
-        <ListView x:Name="MiCarritoList"
-      RowHeight="80">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="diamante.png"
-                           HeightRequest="70"
-                           WidthRequest="70"/>
-                            <StackLayout Orientation="Vertical">
-                                <Label Text="{Binding Nombre}"
-                               FontSize="25"
-                               FontAttributes="Bold"
-                               WidthRequest="270"/>
-                                <Label Text="{Binding Cantidad}"
-                                 FontSize="20"/>
+
+        <Frame HeightRequest="110" VerticalOptions="Start" CornerRadius="0" BackgroundColor="Black" Padding="0" BorderColor="Black">
+            <Label Margin="0,0,0,0"
+                Text="JOYALUX"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="60"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"/>
+        </Frame>
+
+        <Frame BackgroundColor="White" Margin="10,0,10,0" BorderColor="Transparent">
+            <Label 
+                Text="Ya estas a un paso más!"
+                FontAttributes="Bold,Italic"
+                FontSize="20"
+                TextColor="Black"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"/>
+        </Frame>
+        
+        <ScrollView HeightRequest="400">
+            <ListView x:Name="MiCarritoList"
+                      RowHeight="200"
+                      Margin="0,10,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" Margin="55,0,0,0">
+                                    <Image Source="diamante.png"
+                                          HeightRequest="70"
+                                          WidthRequest="70"
+                                           HorizontalOptions="Start"/>
+                                    
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Nombre: "
+                                               VerticalOptions="Start"
+                                               FontSize="16"
+                                               TextColor="Black"/>
+                                        <Label Text="{Binding Nombre}"
+                                               FontAttributes="Bold"
+                                               VerticalOptions="Start"
+                                               FontSize="16"
+                                               TextColor="Black"/>
+                                    </StackLayout>
+                     
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Cantidad: "
+                                               VerticalOptions="Start"
+                                               FontSize="16"
+                                               TextColor="Black"/>
+                                        <Label Text="{Binding Cantidad}"
+                                               FontAttributes="Bold"
+                                               VerticalOptions="Start"
+                                               FontSize="16"
+                                               TextColor="Black"/>
+                                    </StackLayout>
+                                  
+                                </StackLayout>
+                                <Button Text="-"
+                                        Margin="130"
+                                        CornerRadius="10"
+                                        WidthRequest="60"
+                                        HeightRequest="40"
+                                        FontSize="16"
+                                        TextColor="White"
+                                        BackgroundColor="Black"
+                                        FontAttributes="Bold"
+                                        Clicked="DeleteProduct"/>
                             </StackLayout>
-                            <Button Text="-" BackgroundColor="Black" CornerRadius="20" Padding="0"
-                                  FontSize="15"
-                                  TextColor="White"
-                                  Margin="5"
-                                  Clicked="DeleteProduct" />
-                           
-                        </StackLayout>
-                        
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Button Text="Comprar" BackgroundColor="Black" CornerRadius="20" Padding="0"
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <Button Text="Comprar" BackgroundColor="Black" CornerRadius="20" Padding="0" Margin="0,35,0,0"
+                WidthRequest="200" HeightRequest="55"
               FontSize="15"
               TextColor="White"
-              Margin="5"
+              FontAttributes="Bold"
               Clicked="OnClickComprar"/>
-
     </VerticalStackLayout>
 </ContentPage>

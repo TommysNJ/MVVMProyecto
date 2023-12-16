@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProductoApp1.IniciarSesion"
              Title="IniciarSesion"
              BackgroundColor="White">
-    
-    
+
     <VerticalStackLayout>
         <Frame HeightRequest="110" VerticalOptions="Start" CornerRadius="0" BackgroundColor="Black" Padding="0">
             <Label Margin="0,0,0,0"
@@ -17,8 +16,6 @@
                 HorizontalOptions="Center"/>
         </Frame>
 
-
-
         <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0">
             <Label
             Text="Brilla con Estilo: Tu Destino de Joyas Virtuales,"
@@ -27,7 +24,6 @@
             FontSize="15"
             HorizontalOptions="Center"
             TextDecorations="Underline"/>
-            
             <Label
             Text="donde Cada Tesoro Cuenta."
             TextColor="Black"
@@ -35,57 +31,26 @@
             FontSize="15"
             HorizontalOptions="Center"
             TextDecorations="Underline"/>
-            
-            <Frame HeightRequest="50" Margin="0,40,0,0" BorderColor="Black" Padding="0" >
-                <Entry WidthRequest="400"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,3,0,0"
+
+            <Frame HeightRequest="50" Margin="0,90,0,0" BorderColor="Black" Padding="0" >
+                <Entry WidthRequest="150" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" 
                    Placeholder="Correo"
                    x:Name="Correo"
                    TextColor="Black"/>
             </Frame>
             <Frame  HeightRequest="50" Margin="0,10,0,0" BorderColor="Black" Padding="0">
-                <Entry WidthRequest="400" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,3,0,0"
-                Placeholder="Contrasena"
+                <Entry WidthRequest="150" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                Placeholder="Contraseña"
                 x:Name="Contrasena"
                 TextColor="Black"
                 IsPassword="True"/>
             </Frame>
+
             <Button WidthRequest="200" HeightRequest="55" Margin="0,60,0,0" BackgroundColor="Black" CornerRadius="20" Padding="0"
                 Text="Iniciar sesión"
                 TextColor="White"
                 FontAttributes="Bold"
                 Clicked="OnClickIniciarSesion"/>
-
         </StackLayout>
-
-
-    </VerticalStackLayout>
+    </VerticalStackLayout> 
 </ContentPage>
-
-
-
-
-
-
-
-
-<!--<TableView >
-            <TableRoot>
-                <TableSection Title="Iniciar Sesion">
-                    <EntryCell x:Name="Correo"
-                             Placeholder="Correo"/>
-                    <EntryCell x:Name="Contrasena"
-                             Placeholder="*********"/>
-
-
-                </TableSection>
-
-
-            </TableRoot>
-        </TableView>
-        <Button Text="Iniciar Sesion"
-         FontSize="15"
-         Margin="5"
-         Clicked="OnClickIniciarSesion"/>
-    </VerticalStackLayout>-->
-
-<!--</ContentPage>-->

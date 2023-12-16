@@ -23,9 +23,6 @@ public partial class ProductoPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        //List<Producto> ListaProducto = await _APIService.GetProductos();
-        //var productos = new ObservableCollection<Producto>(ListaProducto);
-        //listaProductos.ItemsSource = productos;
     }
 
     private async void OnClickIniciarSesion(object sender, EventArgs e)
@@ -37,9 +34,6 @@ public partial class ProductoPage : ContentPage
 
     private async void OnClickRegistrarse(object sender, EventArgs e)
     {
-        //var toast = Toast.Make("Click en nuevo producto", ToastDuration.Short, 14);
-
-        //await toast.Show();
 
         await Navigation.PushAsync(new Registrarse(_APIService));
     }

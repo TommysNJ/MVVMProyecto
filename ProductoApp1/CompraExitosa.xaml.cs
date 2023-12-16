@@ -20,9 +20,12 @@ public partial class CompraExitosa : ContentPage
 
 	}
 
-	private async void OnClickVolverList(object sender, EventArgs e)
-	{
-		
-		await Navigation.PushAsync(new ListaProductos(_APIService, usuarioLogin));
-	}
+    private async void OnClickVolverList(object sender, EventArgs e)
+    {
+        await Application.Current.MainPage.Navigation.PopToRootAsync();
+
+
+        await Application.Current.MainPage.Navigation.PushAsync(new ListaProductos(_APIService, usuarioLogin));
+    }
+
 }
