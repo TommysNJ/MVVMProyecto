@@ -1,42 +1,44 @@
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 using Ejemplo1.Models;
 using ProductoApp1.Services;
+using ProductoApp1.ViewModels;
 
 namespace ProductoApp1;
 
 public partial class Registrarse : ContentPage
 {
-    private object _ApiService;
 
-    public Registrarse()
-	{
-		InitializeComponent();
 
-	}
     private readonly APIService _APIService;
+    private readonly RegistrarseViewModel _viewModel;
+
     public Registrarse(APIService apiservice)
     {
         InitializeComponent();
         _APIService = apiservice;
+        _viewModel = new RegistrarseViewModel();
+        _viewModel.SetApiService(apiservice);
+        BindingContext = _viewModel;
 
     }
 
     private async void OnClickRegistrarse(object sender, EventArgs e)
     {
-        Usuario user = await _APIService.PostRegistrarse(new Usuario {Nombre=Nombre.Text, Correo=Correo.Text, Contrasena=Contrasena.Text });
+        int result = await _viewModel.OnClickRegistrarse();
 
-        if (user != null)
+        if (result == 0)
         {
-            Usuario userLogin = await _APIService.GetIniciarSesion(user.Correo, user.Contrasena);
-
-            if (userLogin != null && userLogin.Nombre != null)
-            {
-                await Navigation.PushAsync(new ListaProductos(_APIService));
-            }
-            else
-                await Navigation.PushAsync(new IniciarSesion(_APIService));
+            await Navigation.PushAsync(new ListaProductos(_APIService));
+        } else if (result == 1)
+        {
+            var toast = Toast.Make("Ya existe una cuenta con esas credenciales.", ToastDuration.Short, 14);
+            await toast.Show();
         }
         else
-            await Navigation.PushAsync(new Registrarse(_APIService));
-    
+        {
+            var toast = Toast.Make("Ingrese todos los datos solicitados!!!", ToastDuration.Short, 14);
+            await toast.Show();
+        }
     }
 }

@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ProductoApp1.ViewModels"
              x:Class="ProductoApp1.IniciarSesion"
              Title="IniciarSesion"
              BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <viewModels:IniciarSesionViewModel/>
+    </ContentPage.BindingContext>
 
     <VerticalStackLayout>
         <Frame HeightRequest="110" VerticalOptions="Start" CornerRadius="0" BackgroundColor="Black" Padding="0">
@@ -36,12 +41,14 @@
                 <Entry WidthRequest="150" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" 
                    Placeholder="Correo"
                    x:Name="Correo"
+                   Text="{Binding Correo}"
                    TextColor="Black"/>
             </Frame>
             <Frame  HeightRequest="50" Margin="0,10,0,0" BorderColor="Black" Padding="0">
                 <Entry WidthRequest="150" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                 Placeholder="Contraseña"
                 x:Name="Contrasena"
+                Text="{Binding Contrasena}"
                 TextColor="Black"
                 IsPassword="True"/>
             </Frame>

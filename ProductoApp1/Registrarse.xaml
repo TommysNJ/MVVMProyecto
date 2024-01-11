@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ProductoApp1.ViewModels"
              x:Class="ProductoApp1.Registrarse"
              Title="Registrarse"
              BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <viewModels:RegistrarseViewModel/>
+
+    </ContentPage.BindingContext>
 
 
     <VerticalStackLayout>
@@ -36,6 +42,7 @@
                 <Entry WidthRequest="150" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" 
                    Placeholder="Nombre"
                    x:Name="Nombre"
+                   Text="{Binding Nombre}"
                    TextColor="Black"/>
             </Frame>
 
@@ -43,6 +50,7 @@
                 <Entry WidthRequest="150" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                 Placeholder="Correo"
                 x:Name="Correo"
+                Text="{Binding Correo}"
                 TextColor="Black"/>
             </Frame>
 
@@ -50,6 +58,7 @@
                 <Entry WidthRequest="150" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                 Placeholder="Contraseña"
                 x:Name="Contrasena"
+                Text="{Binding Contrasena}"
                 IsPassword="True"
                 TextColor="Black"/>
             </Frame>

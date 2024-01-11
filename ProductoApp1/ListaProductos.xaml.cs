@@ -1,6 +1,7 @@
 using CommunityToolkit.Maui.Core;
 using Ejemplo1.Models;
 using ProductoApp1.Services;
+using ProductoApp1.ViewModels;
 using System.Collections.ObjectModel;
 
 namespace ProductoApp1;
@@ -13,28 +14,40 @@ public partial class ListaProductos : ContentPage
     }
 
     private readonly APIService _APIService;
+    private readonly ListaProductosViewModel _viewModel;
 
     public List<Producto> MiCarrito { get; set; }
     List<Producto> ListaProducto;
     Usuario usuarioLogin;
+
     public ListaProductos(APIService apiservice, Usuario usuario = null)
     {
         usuarioLogin = usuario;
         InitializeComponent();
         _APIService = apiservice;
-        MiCarrito = new List<Producto>();
+        //MiCarrito = new List<Producto>();
+        _viewModel = new ListaProductosViewModel();
+        _viewModel.SetApiService(apiservice);
+        BindingContext = _viewModel;
+    }
+
+    private void DesplegarProductos()
+    {
+        _viewModel.ProductosAsync();
     }
 
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        if (ListaProducto == null)
+        DesplegarProductos();
+
+        /*if (ListaProducto == null)
             ListaProducto = await _APIService.GetProductos();
 
         var productos = new ObservableCollection<Producto>(ListaProducto);
-        listaProductos.ItemsSource = productos;
+        listaProductos.ItemsSource = productos;*/
 
-        CantidadCarrito.Text = MiCarrito.Sum(x => x.Cantidad).ToString();
+        /*CantidadCarrito.Text = MiCarrito.Sum(x => x.Cantidad).ToString();*/
     }
 
 
@@ -42,6 +55,7 @@ public partial class ListaProductos : ContentPage
     private async void OnClickAddCard(object sender, EventArgs e)
 
     {
+
         //obtiene un producto asociado al botón
         Producto producto = (sender as Button)?.BindingContext as Producto;
 
